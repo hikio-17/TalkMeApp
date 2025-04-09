@@ -55,12 +55,15 @@ export function checkAuthenticatedRoute(page) {
 
   class ErroPage {
     async render() {
-      return `<p>Login dulu</p>`
+      return `
+        <div class="unauthorize__container">
+          <h1>Untuk melihat daftar Story</h1>
+          <p>Silahkan <a href="#/login">Login</a> terlebih dahulu.</p>
+        </div>
+      `;
     }
 
-    async afterRender() {
-      
-    }
+    async afterRender() {}
   }
 
   if (!isLogin) {

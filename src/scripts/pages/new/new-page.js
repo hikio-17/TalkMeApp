@@ -183,7 +183,7 @@ export default class NewPage {
     const draggableMarker = this.#map.addMarker(
       [centerCoordinate.latitude, centerCoordinate.longitude],
       { draggable: true },
-    )
+    );
 
     draggableMarker.addEventListener('move', (event) => {
       const coordinate = event.target.getLatLng();

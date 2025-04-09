@@ -1,4 +1,4 @@
-import Map from "../../utils/map";
+import Map from '../../utils/map';
 
 export default class HomePresenter {
   #view;
@@ -38,7 +38,7 @@ export default class HomePresenter {
             ...story,
             location: await Map.getPlaceNameByCoordinate(story.lat, story.lon),
           };
-        })
+        }),
       );
 
       if (!response.ok) {

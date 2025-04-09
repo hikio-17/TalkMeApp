@@ -1,4 +1,4 @@
-import Map from "../../utils/map";
+import Map from '../../utils/map';
 
 export default class BookmarkPresenter {
   #view;
@@ -27,12 +27,14 @@ export default class BookmarkPresenter {
       await this.showStoriesListMap();
 
       const listOfStories = await this.#model.getAllStories();
-      const stories = await Promise.all(listOfStories.map(async (story) => {
-                return {
-                  ...story,
-                  location: await Map.getPlaceNameByCoordinate(story.lat, story.lon),
-                };
-              }));
+      const stories = await Promise.all(
+        listOfStories.map(async (story) => {
+          return {
+            ...story,
+            location: await Map.getPlaceNameByCoordinate(story.lat, story.lon),
+          };
+        }),
+      );
 
       const message = 'Berhasil mendapatkan daftar laporan tersimpan.';
       this.#view.populateBookmarkedStories(message, stories);

@@ -1,4 +1,4 @@
-import { storyMapper } from "../../data/api-mapper";
+import { storyMapper } from '../../data/api-mapper';
 
 export default class StoryDetailPresenter {
   #storyId;

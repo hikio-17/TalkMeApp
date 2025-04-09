@@ -76,12 +76,7 @@ export async function getStoryById(id) {
   };
 }
 
-export async function storeNewStory({
-  description,
-  photo,
-  lat,
-  lon,
-}) {
+export async function storeNewStory({ description, photo, lat, lon }) {
   const accessToken = getAccessToken();
 
   const formData = new FormData();
@@ -103,7 +98,7 @@ export async function storeNewStory({
       body: formData,
     });
     const json = await fetchResponse.json();
-  
+
     return {
       ...json,
       ok: fetchResponse.ok,
@@ -114,13 +109,12 @@ export async function storeNewStory({
       body: formData,
     });
     const json = await fetchResponse.json();
-  
+
     return {
       ...json,
       ok: fetchResponse.ok,
     };
   }
-
 }
 
 export async function subscribePushNotification({ endpoint, keys: { p256dh, auth } }) {

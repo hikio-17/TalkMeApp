@@ -9,7 +9,12 @@ import {
 import { isServiceWorkerAvailable, setupSkipToContent, transitionHelper } from '../utils';
 import { getAccessToken, getLogout } from '../utils/auth';
 import { routes } from '../routes/routes';
-import { isCurrentPushSubscriptionAvailable, subscribe, unsubscribe } from '../utils/notification-helper';
+import {
+  isCurrentPushSubscriptionAvailable,
+  subscribe,
+  unsubscribe,
+} from '../utils/notification-helper';
+import NotFoundPage from './not-found/not-found-page';
 
 export default class App {
   #content;
@@ -93,7 +98,7 @@ export default class App {
       });
 
       return;
-    } 
+    }
 
     pushNotificationTools.innerHTML = generateSubscribeButtonTemplate();
     document.getElementById('subscribe-button').addEventListener('click', () => {
@@ -108,7 +113,7 @@ export default class App {
     const route = routes[url];
 
     // Get page instance
-    const page = route();
+    const page = route ? route() : new NotFoundPage();
 
     const transition = transitionHelper({
       updateDOM: async () => {

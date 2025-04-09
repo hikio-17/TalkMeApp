@@ -13,7 +13,7 @@ export default class HomePage {
   #map = null;
   #page = 1;
 
-  async render () {
+  async render() {
     return `
       <section>
         <div class="stories-list__map__container">
@@ -39,7 +39,7 @@ export default class HomePage {
     `;
   }
 
-  async afterRender () {
+  async afterRender() {
     this.#presenter = new HomePresenter({
       view: this,
       model: StoryAPI,
@@ -52,7 +52,7 @@ export default class HomePage {
     btnPrev.addEventListener('click', async () => {
       this.#page -= 1;
       document.getElementById('stories-list').innerHTML = '';
-      if(this.#page === 1) {
+      if (this.#page === 1) {
         this.disableBtnPrev();
       }
       page.innerText = this.#page;
@@ -112,35 +112,35 @@ export default class HomePage {
     `;
   }
 
-  populateStoriesListEmpty () {
+  populateStoriesListEmpty() {
     document.getElementById('stories-list').innerHTML = generateStoriesListEmptyTemplate();
   }
 
-  populateStoriesListError (message) {
+  populateStoriesListError(message) {
     document.getElementById('stories-list').innerHTML = generateStoriesListErrorTemplate(message);
   }
 
-  async initialMap () {
+  async initialMap() {
     this.#map = await Map.build('#map', {
       zoom: 10,
       locate: true,
     });
   }
 
-  showMapLoading () {
+  showMapLoading() {
     document.getElementById('map-loading-container').innerHTML = generateLoaderAbsoluteTemplate();
   }
 
-  hideMapLoading () {
+  hideMapLoading() {
     document.getElementById('map-loading-container').innerHTML = '';
   }
 
-  showLoading () {
+  showLoading() {
     document.getElementById('stories-list-loading-container').innerHTML =
       generateLoaderAbsoluteTemplate();
   }
 
-  hideLoading () {
+  hideLoading() {
     document.getElementById('stories-list-loading-container').innerHTML = '';
   }
 }

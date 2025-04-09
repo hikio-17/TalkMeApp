@@ -6,10 +6,10 @@
 }
 
 :root {
-  --primary-color: #3B82F6; 
+  --primary-color: #3b82f6;
   --primary-text-color: #ffffff;
-  --primary-hover-color: #2563EB;
-  --primary-shadow-color: #3B82F699;
+  --primary-hover-color: #2563eb;
+  --primary-shadow-color: #3b82f699;
 
   --secondary-color: #6c757d;
   --secondary-text-color: #ffffff;
@@ -904,10 +904,12 @@ footer {
   text-align: center;
 }
 
-#btn-prev:disabled, #btn-next:disabled {
+#btn-prev:disabled,
+#btn-next:disabled {
   cursor: not-allowed;
 }
-#btn-prev, #btn-next {
+#btn-prev,
+#btn-next {
   background-color: var(--primary-color);
   border: none;
   color: #ffffff;
@@ -916,7 +918,8 @@ footer {
   cursor: pointer;
 }
 
-#btn-prev:hover, #btn-next:hover {
+#btn-prev:hover,
+#btn-next:hover {
   background-color: var(--primary-hover-color);
 }
 
@@ -926,4 +929,9 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 3rem;
+}
+
+.not-found__container, .unauthorize__container {
+  text-align: center;
+  margin-top: 50px;
 }

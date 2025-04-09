@@ -4,7 +4,7 @@ import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import * as CONFIG from '../config';
 
-export default class Map  {
+export default class Map {
   #zoom = 5;
   #map = null;
 
@@ -20,7 +20,7 @@ export default class Map  {
       }
 
       navigator.geolocation.getCurrentPosition(resolve, reject, options);
-    })
+    });
   }
 
   /**
@@ -44,7 +44,6 @@ export default class Map  {
           ...options,
           center: coordinate,
         });
-
       } catch (error) {
         console.error('build: errorr: ', error);
 
@@ -83,7 +82,7 @@ export default class Map  {
       'OpenStreetMap': tileOsm,
       'OpenStreetMap.HOT': tileOsmHOT,
       'OpenTopoMap': openTopoMap,
-    }
+    };
 
     this.#map = map(document.querySelector(selector), {
       zoom: this.#zoom,
@@ -145,18 +144,19 @@ export default class Map  {
   static async getPlaceNameByCoordinate(latitude, longitude) {
     const apiKey = CONFIG.MAP_SERVICE_KEY;
     const url = `${CONFIG.MAP_TILER_GEOCODING_URL}/${longitude},${latitude}.json?key=${apiKey}`;
-    
+
     try {
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
       const data = await response.json();
 
       const subRegion = data.features.find((item) => item.place_type.includes('subregion'));
-      const placeName = subRegion?.place_name_id || subRegion?.place_name_en || 'Lokasi tidak ditambahkan';
-  
+      const placeName =
+        subRegion?.place_name_id || subRegion?.place_name_en || 'Lokasi tidak ditambahkan';
+
       return {
         latitude,
         longitude,
@@ -177,7 +177,7 @@ export default class Map  {
     return {
       latitude: lat,
       longitude: lng,
-    }
+    };
   }
 
   addMapEventListener(eventName, callback) {

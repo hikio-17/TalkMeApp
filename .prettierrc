@@ -14,5 +14,5 @@
 
   "proseWrap": "never",
   "htmlWhitespaceSensitivity": "css",
-  "singleAttributePerLine": false,
+  "singleAttributePerLine": false
 }
