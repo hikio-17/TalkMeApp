@@ -67,7 +67,6 @@ export function checkAuthenticatedRoute(page) {
   }
 
   if (!isLogin) {
-    location.hash = '#/login';
     return new ErrorPage();
   }
 
