@@ -57,7 +57,7 @@ export function checkAuthenticatedRoute(page) {
     async render() {
       return `
         <div class="unauthorize__container">
-          <h1>Untuk melihat daftar Story</h1>
+          <h1>Untuk melihat Halaman ini</h1>
           <p>Silahkan <a href="#/login">Login</a> terlebih dahulu.</p>
         </div>
       `;
