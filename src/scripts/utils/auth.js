@@ -53,7 +53,7 @@ export function checkUnauthenticatedRouteOnly(page) {
 export function checkAuthenticatedRoute(page) {
   const isLogin = !!getAccessToken();
 
-  class ErroPage {
+  class ErrorPage {
     async render() {
       return `
         <div class="unauthorize__container">
@@ -67,8 +67,8 @@ export function checkAuthenticatedRoute(page) {
   }
 
   if (!isLogin) {
-    location.hash = '/login';
-    return new ErroPage();
+    location.hash = '#/login';
+    return new ErrorPage();
   }
 
   return page;
